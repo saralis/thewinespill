@@ -9,17 +9,6 @@
 </head>
 <body>
 	<nav>
-		<ul id="nav-bar">
-        <% if logged_in?%>
-	        <li class="header-links"><a class="header-links" href="/users/<%=current_user.id%>">Your profile, <%=current_user.username%></a></li>
-	        <li class="header-links"><a class="header-links" href="/logout">Logout</a></li>
-	        <% else %>
-	        <li class="header-links"><a class="header-links" href="/users/new">Register</a></li>
-	        <li class="header-links"><a class="header-links" href="/login">Login</a></li>
-        <% end %>
-      	</ul> </nav>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
 
 <%= yield %>
 </body>
