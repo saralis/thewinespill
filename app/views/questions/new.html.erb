@@ -1,0 +1,6 @@
+
+<%= form_tag("/new", method: "get") do %>
+  <%= label_tag(:body, "Your Question:") %>
+  <%= text_field_tag(:body) %>
+  <%= submit_tag("Ask the Wino Community!") %>
+<% end %>
