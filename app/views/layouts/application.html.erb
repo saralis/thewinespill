@@ -8,8 +8,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav>
-
+	<nav id="user-nav">
+      <ul class="list" id="index">
+      <% if user_signed_in? %>
+          <li id="main-header">The Wine Spill</li>
+          <div class="nav-div"><li><%= link_to 'Home', questions_path %></li></div>
+          <div class="nav-div"><li class="link"><%= link_to "My Page", user_path(current_user) %></li></div>
+          <div class="nav-div"><li><%= link_to 'Log Out', destroy_user_session_path, method: "delete" %></li></div>
+      <% else %>
+          <li id="main-header">The Wine Spill</li>
+          <div class="nav-div"><li><%= link_to 'Home', questions_path %></li></div>
+          <div class="nav-div"><li><%= link_to 'Sign Up', new_user_session_path %></li></div>
+          <div class="nav-div"><li><%= link_to 'Login', new_user_session_path %></li></div>
+      <% end %>
+      </ul>
+    </nav>
+		<div>
+			<% if alert %>
+				<p>	<%= alert %> </p>
+			<% end %>
+			<% if notice %>
+				<p>	<%= notice %> </p>
+			<% end %>
+		</div>
 <%= yield %>
 </body>
 </html>

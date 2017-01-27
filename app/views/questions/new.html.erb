@@ -1,6 +1,13 @@
+<div>
+	<%= form_for question, html: {class: 'new'} do |form| %>
+		<p><%= form.label :question%><br>
+		   <%= form.text_field :body%></p>
+		   <%= form.hidden_field :user_id, :value => current_user.id %>
+		<%= form.submit "Ask some Winos"%>
+	<%end%>
 
-<%= form_tag("/new", method: "get") do %>
-  <%= label_tag(:body, "Your Question:") %>
-  <%= text_field_tag(:body) %>
-  <%= submit_tag("Ask the Wino Community!") %>
-<% end %>
+
+</div>
+
+
+	

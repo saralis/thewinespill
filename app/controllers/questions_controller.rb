@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-  	question = Question.new
+  	question = Question.new(build_content)
   end
 
   def create
@@ -18,7 +18,8 @@ class QuestionsController < ApplicationController
   	if question.save
   		redirect_to '/'
   	else 
-  		redirect_to '/'
+  		flash.alert = "Couldn't post"
+  		rednder'new'
   	end
   end
 

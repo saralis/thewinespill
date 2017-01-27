@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
+  devise_for :users, 
+    controllers: {
+      registrations: "users/registrations", :sessions => "users/sessions"
+    },
+    path: "users", path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register', edit: 'settings' }
 
   root 'questions#index'
   # The priority is based upon order of creation: first created -> highest priority.
